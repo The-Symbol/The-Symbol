@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Approval Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Loan Approval Prediction</h1>
+        <form method="POST">
+            <label for="income">Applicant Income:</label>
+            <input type="number" id="income" name="income" placeholder="Enter your income" required>
+            <br>
+            <label for="credit_score">Credit Score:</label>
+            <input type="number" id="credit_score" name="credit_score" placeholder="Enter your credit score" required>
+            <br>
+            <label for="debt">Debt:</label>
+            <input type="number" id="debt" name="debt" placeholder="Enter your debt" required>
+            <br>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" placeholder="Enter your age" required>
+            <br>
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        {% if result %}
+            <div class="result">{{ result }}</div>
+        {% endif %}
+
+        <div class="info-section">
+            <h2>Understanding Loan Approval</h2>
+            <p>Credit score and debt-to-income ratio are key factors in loan approval:</p>
+            <ul>
+                <li><strong>Credit Score:</strong> Range: 300–850. Higher score = better creditworthiness.</li>
+                <li><strong>Credit Score Impact:</strong> Higher score → better chances of approval.</li>
+                <li><strong>Debt-to-Income (DTI) Ratio:</strong> DTI = (Monthly Debt / Monthly Income) × 100</li>
+                <li><strong>DTI Impact:</strong> Lower DTI → better approval chances. Higher DTI → higher risk.</li>
+                <li><strong>Ideal DTI:</strong> Below 36% is favorable.</li>
+                <li><strong>Interest Rates:</strong> Lower credit score/DTI → higher interest rates.</li>
+                <li><strong>Improving Profile:</strong> Pay off debt, reduce obligations, improve payment history.</li>
+                <li><strong>Age:</strong> Older → More financial stability; Younger → Build credit history early.</li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>
