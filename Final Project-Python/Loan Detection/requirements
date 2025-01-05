@@ -1,6 +1,4 @@
-pip installed:
-	
-	pandas
-	scikit-learn
-	flask
+pandas
+scikit-learn
+flask
 	
